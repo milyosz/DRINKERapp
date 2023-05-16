@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activites.DrinkActivity">
 
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
             android:layout_height="match_parent"
             app:contentScrim="@color/accent"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="Drink name">
+            app:title="Drink Name">
 
             <ImageView
                 android:id="@+id/img_drink_detail"
@@ -38,19 +37,21 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_ad_to_fav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_favorites"
-        android:backgroundTint="@color/accent"
-        android:tint="@color/white"
+        app:backgroundTint="@color/accent"
+        app:tint="@color/white"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|end"
         android:layout_marginEnd="@dimen/_10sdp"/>
-    
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -60,16 +61,16 @@
                 android:id="@+id/linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
+                    android:id="@+id/tv_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Category : Vodka"
@@ -78,32 +79,67 @@
                     android:drawableLeft="@drawable/ic_categories"
                     android:drawableTint="@color/g_black"
                     android:layout_weight="1"/>
+
                 <TextView
+                    android:id="@+id/tv_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category : Gin"
-                    android:textStyle="bold"
-                    android:textColor="@color/g_black"
+                    android:layout_weight="1"
                     android:drawableLeft="@drawable/ic_area"
                     android:drawableTint="@color/g_black"
-                    android:layout_weight="1"/>
-
-
+                    android:text="Area : Poland"
+                    android:textColor="@color/g_black"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
+
             <TextView
+                android:id="@+id/tv_instructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Instructions : "
+                android:text="I N S T R U K C J E :"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/linear_layout"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/myfont"
+                android:textSize="@dimen/_15sdp"
                 />
+
+            <TextView
+                android:id="@+id/tv_instructions_steps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/tv_instructions"
+                app:layout_constraintTop_toBottomOf="@id/tv_instructions"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/black"
+                />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
+    <ImageView
+        android:id="@+id/img_yt"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="bottom|center"
+        android:src="@drawable/ic_yt"
+        android:layout_marginBottom="@dimen/_10sdp" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom"
+        android:visibility="gone"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
